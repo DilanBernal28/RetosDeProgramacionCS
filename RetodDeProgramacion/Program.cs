@@ -6,6 +6,7 @@ string? answer;
 //Classes used
 FizzBuzz fz = new();
 Anagram an = new();
+Fibonacci fb = new();
 
 //Introduction to CLI
 Console.Clear();
@@ -18,6 +19,7 @@ Console.WriteLine("I'm doing this with JetBrains Rider in a MacBooc Air M2");
 List<ChallengeCompleted> challengesCompleted = new();
 challengesCompleted.Add(new ChallengeCompleted(1, "FizzBuzz", Difficulty.Fácil));
 challengesCompleted.Add(new ChallengeCompleted(2, "Anagram", Difficulty.Medio));
+challengesCompleted.Add(new ChallengeCompleted(3, "Fibonacci", Difficulty.Difícil));
 challengesCompleted.Add(new ChallengeCompleted(0, "Exit", null));
 
 do
@@ -79,10 +81,13 @@ void actionsMenu(int number)
     switch (number)
     {
         case 1:
-            fz.doTheAction(challengesCompleted.Where(challenge => challenge.number == number ).ToList()[0]);
+            fz.doTheAction(challengesCompleted.First(ch => ch.number == number));
             break;
         case 2:
-            an.doTheAction(challengesCompleted.Where(challenge => challenge.number == number).ToList()[0]);
+            an.doTheAction(challengesCompleted.First(ch => ch.number == number));
+            break;
+        case 3:
+            fb.doTheAction(challengesCompleted.First(ch => ch.number == number));
             break;
         case 0:
             Console.WriteLine("Thanks for run my code c:");
