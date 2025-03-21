@@ -6,7 +6,7 @@ public class Fibonacci : Challenge
 {
     public override void doTheAction(ChallengeCompleted challenge)
     {
-        Console.WriteLine($"{challenge.number} challenge: {challenge.name}");
+        Console.WriteLine($"{challenge.Number} challenge: {challenge.Name}");
         Console.WriteLine();
         DoFibonacci();
     }

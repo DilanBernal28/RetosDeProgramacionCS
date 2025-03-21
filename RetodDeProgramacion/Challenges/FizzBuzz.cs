@@ -6,7 +6,7 @@ public class FizzBuzz : Challenge
 {
     public override void doTheAction(ChallengeCompleted challenge)
     {
-        Console.WriteLine($"{challenge.number} challenge: {challenge.name}");
+        Console.WriteLine($"{challenge.Number} challenge: {challenge.Name}");
         for (var i = 1; i <= 100; i++)
         {
             if (!isFizz(i) && !isBuzz(i))

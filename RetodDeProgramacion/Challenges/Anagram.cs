@@ -6,7 +6,11 @@ public class Anagram : Challenge
 {
     public override void doTheAction(ChallengeCompleted challenge)
     {
-        Console.WriteLine($"{challenge.number} challenge: {challenge.name}");
+        Console.WriteLine($"{challenge.Number} challenge: {challenge.Name}");
+    }
+
+    private void doAnagram()
+    {
         
         //Instructions
         Console.WriteLine();

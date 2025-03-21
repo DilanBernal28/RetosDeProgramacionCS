@@ -7,6 +7,7 @@ string? answer;
 FizzBuzz fz = new();
 Anagram an = new();
 Fibonacci fb = new();
+PrimeNumbers pn = new();
 
 //Introduction to CLI
 Console.Clear();
@@ -17,21 +18,22 @@ Console.WriteLine("I'm doing this with JetBrains Rider in a MacBooc Air M2");
 
 //List of challenges
 List<ChallengeCompleted> challengesCompleted = new();
-challengesCompleted.Add(new ChallengeCompleted(1, "FizzBuzz", Difficulty.Fácil));
+challengesCompleted.Add(new ChallengeCompleted(1, "Fizz Buzz", Difficulty.Fácil));
 challengesCompleted.Add(new ChallengeCompleted(2, "Anagram", Difficulty.Medio));
 challengesCompleted.Add(new ChallengeCompleted(3, "Fibonacci", Difficulty.Difícil));
+challengesCompleted.Add(new ChallengeCompleted(4, "Prime Numbers", Difficulty.Medio));
 challengesCompleted.Add(new ChallengeCompleted(0, "Exit", null));
 
 do
 {
-    var isValid = false;
+    bool isValid;
     var number = -1;
     
     do
     {
-        showMenu(challengesCompleted);
+        ShowMenu();
         answer = Console.ReadLine();
-        isValid = isValidResponse(answer);
+        isValid = IsValidResponse(answer);
     } while (isValid != true);
     
     Console.Clear();
@@ -40,14 +42,14 @@ do
     {
         if (number == 0)
         {
-            actionsMenu(0);
+            ActionsMenu(0);
             break;
         }
         var oldAnswer = number;
         do
         {
             Console.Clear();
-            actionsMenu(oldAnswer);
+            ActionsMenu(oldAnswer);
             Console.WriteLine();
             Console.WriteLine("What do you want now?");
             Console.WriteLine("1: Repeat this option");
@@ -60,11 +62,12 @@ do
     else
     {
         Console.WriteLine("The answer must be a specific number in the list " + answer);
-        showMenu(challengesCompleted);
+        ShowMenu();
     }
 } while (answer != "0");
 
-void showMenu(List<ChallengeCompleted> challengesCompleted)
+//Aditional Functions
+void ShowMenu()
 {
     //Options
     Console.WriteLine();
@@ -72,35 +75,44 @@ void showMenu(List<ChallengeCompleted> challengesCompleted)
     Console.WriteLine();
     foreach(var challenge in challengesCompleted)
     {
-        Console.WriteLine($"{challenge.number}) {challenge.name}. [{challenge.difficulty}]");
+        Console.WriteLine($"{challenge.Number}) {challenge.Name}. [{challenge.Difficulty}]");
     }
 }
 
-void actionsMenu(int number)
+void ActionsMenu(int number)
 {
     switch (number)
     {
         case 1:
-            fz.doTheAction(challengesCompleted.First(ch => ch.number == number));
+            fz.doTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
         case 2:
-            an.doTheAction(challengesCompleted.First(ch => ch.number == number));
+            an.doTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
         case 3:
-            fb.doTheAction(challengesCompleted.First(ch => ch.number == number));
+            fb.doTheAction(challengesCompleted.First(ch => ch.Number == number));
+            break;
+        case 4:
+            pn.doTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
         case 0:
             Console.WriteLine("Thanks for run my code c:");
             return;
         default:
             Console.WriteLine("The answer need to be in the list");
-            showMenu(challengesCompleted);
+            ShowMenu();
             break;
     }
 }
 
-bool isValidResponse(string response)
+bool IsValidResponse(string? response)
 {
+    if (response == null)
+    {
+        Console.Clear();
+        Console.WriteLine("Please Write a real answer");
+        return false;
+    }
     if (int.TryParse(response, out var number))
     {
         if (number < 0)
@@ -109,7 +121,7 @@ bool isValidResponse(string response)
             Console.WriteLine("Please write an answer bigger than 0");
             return false;
         }
-        else if (number > challengesCompleted.Max(ch => ch.number))
+        else if (number > challengesCompleted.Max(ch => ch.Number))
         {
             Console.Clear();
             Console.WriteLine("Please write a number in the answers range");
