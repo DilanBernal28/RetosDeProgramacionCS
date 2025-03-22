@@ -4,7 +4,7 @@ namespace RetodDeProgramacion.Challenges;
 
 public class Anagram : Challenge
 {
-    public override void doTheAction(ChallengeCompleted challenge)
+    public override void DoTheAction(ChallengeCompleted challenge)
     {
         Console.WriteLine($"{challenge.Number} challenge: {challenge.Name}");
     }

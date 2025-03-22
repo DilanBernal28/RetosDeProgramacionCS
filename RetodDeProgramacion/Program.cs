@@ -8,6 +8,7 @@ FizzBuzz fz = new();
 Anagram an = new();
 Fibonacci fb = new();
 PrimeNumbers pn = new();
+PolygonArea pa = new();
 
 //Introduction to CLI
 Console.Clear();
@@ -22,6 +23,8 @@ challengesCompleted.Add(new ChallengeCompleted(1, "Fizz Buzz", Difficulty.Fácil
 challengesCompleted.Add(new ChallengeCompleted(2, "Anagram", Difficulty.Medio));
 challengesCompleted.Add(new ChallengeCompleted(3, "Fibonacci", Difficulty.Difícil));
 challengesCompleted.Add(new ChallengeCompleted(4, "Prime Numbers", Difficulty.Medio));
+challengesCompleted.Add(new ChallengeCompleted(5, "Polygon Area", Difficulty.Fácil));
+
 challengesCompleted.Add(new ChallengeCompleted(0, "Exit", null));
 
 do
@@ -84,16 +87,20 @@ void ActionsMenu(int number)
     switch (number)
     {
         case 1:
-            fz.doTheAction(challengesCompleted.First(ch => ch.Number == number));
+            fz.DoTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
         case 2:
-            an.doTheAction(challengesCompleted.First(ch => ch.Number == number));
+            an.DoTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
         case 3:
-            fb.doTheAction(challengesCompleted.First(ch => ch.Number == number));
+            fb.DoTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
         case 4:
-            pn.doTheAction(challengesCompleted.First(ch => ch.Number == number));
+            pn.DoTheAction(challengesCompleted.First(ch => ch.Number == number));
+            break;
+        
+        case 5:
+            pa.DoTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
         case 0:
             Console.WriteLine("Thanks for run my code c:");

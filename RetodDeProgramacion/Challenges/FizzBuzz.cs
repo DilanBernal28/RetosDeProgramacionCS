@@ -4,7 +4,7 @@ namespace RetodDeProgramacion.Challenges;
 
 public class FizzBuzz : Challenge
 {
-    public override void doTheAction(ChallengeCompleted challenge)
+    public override void DoTheAction(ChallengeCompleted challenge)
     {
         Console.WriteLine($"{challenge.Number} challenge: {challenge.Name}");
         for (var i = 1; i <= 100; i++)
