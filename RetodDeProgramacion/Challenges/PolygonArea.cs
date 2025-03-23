@@ -34,12 +34,12 @@ public class PolygonArea : Challenge
                 double heightN;
                 do
                 {
-                    Console.Write("Please write here your Base:");
+                    Console.Write("Please write here your base:");
                     baseS = Console.ReadLine();
                 } while (!double.TryParse(baseS, out baseN));
                 do
                 {
-                    Console.Write("Please write here your Height:");
+                    Console.Write("Please write here your height:");
                     heightS = Console.ReadLine();
                 } while (!double.TryParse(heightS, out heightN));
                 Triangle triangle = new (baseN, heightN);
@@ -70,7 +70,7 @@ public class PolygonArea : Challenge
                 } while (!double.TryParse(widthS, out widthN));
                 do
                 {
-                    Console.Write("Please write here your Height:");
+                    Console.Write("Please write here your height:");
                     lengthS = Console.ReadLine();
                 } while (!double.TryParse(lengthS, out lengthN));
                 Rectangle rectangle = new (widthN, lengthN);
