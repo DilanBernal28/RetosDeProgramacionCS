@@ -9,6 +9,8 @@ Anagram an = new();
 Fibonacci fb = new();
 PrimeNumbers pn = new();
 PolygonArea pa = new();
+AspectRatio ar = new();
+
 
 //Introduction to CLI
 Console.Clear();
@@ -24,6 +26,7 @@ challengesCompleted.Add(new ChallengeCompleted(2, "Anagram", Difficulty.Medio));
 challengesCompleted.Add(new ChallengeCompleted(3, "Fibonacci", Difficulty.Difícil));
 challengesCompleted.Add(new ChallengeCompleted(4, "Prime Numbers", Difficulty.Medio));
 challengesCompleted.Add(new ChallengeCompleted(5, "Polygon Area", Difficulty.Fácil));
+challengesCompleted.Add(new ChallengeCompleted(6, "Aspect Ratio ", Difficulty.Difícil));
 
 challengesCompleted.Add(new ChallengeCompleted(0, "Exit", null));
 
@@ -98,9 +101,11 @@ void ActionsMenu(int number)
         case 4:
             pn.DoTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
-        
         case 5:
             pa.DoTheAction(challengesCompleted.First(ch => ch.Number == number));
+            break;
+        case 6:
+            ar.DoTheAction(challengesCompleted.First(ch => ch.Number == number));
             break;
         case 0:
             Console.WriteLine("Thanks for run my code c:");
